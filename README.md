@@ -9,7 +9,6 @@
 
 ## Используемые технологии
 
-* Flexbox
 * Grid Layout
 * Webpack
 * React
