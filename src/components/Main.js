@@ -4,12 +4,12 @@ import Card from './Card';
 
 function Main(props) {
   
-  const [userName, setUserName] = React.useState();
-  const [userDescription, setUserDescription] = React.useState();
-  const [userAvatar, setUserAvatar] = React.useState();
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setUserDescription] = React.useState('');
+  const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
 
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     api.getProfileInfo()
     .then((data) => {
       setUserName(data.name)
@@ -23,10 +23,21 @@ function Main(props) {
       setCards(data)   
     })
     .catch(err => {console.log(err)})
-  }, []);
+  }, []);*/
+
+  React.useEffect(() => {
+    Promise.all([api.getProfileInfo(), api.getInitialCards()])
+    .then(([userData, cards]) => {
+      setUserName(userData.name)
+      setUserDescription(userData.about)
+      setUserAvatar(userData.avatar)
+      setCards(cards)
+    })
+    .catch(err => {console.log(err)})
+  }, [])
+
   
   return (
-    <>
     <main className="content">
       <section className = "profile">
         <button className = "profile__avatar-button" type ="button" onClick = {props.onEditAvatar}  >
@@ -46,7 +57,6 @@ function Main(props) {
         </ul>
       </section>
     </main>
-    </>
   )    
 }
 

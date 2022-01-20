@@ -1,6 +1,6 @@
 function ImagePopup(props) {
 
-  const imagePopupClass = `popup popup-photo ` + ( props.card ? "popup_opened" : "");  
+  const imagePopupClass = `popup popup-photo ${props.card.name && props.card.link ? "popup_opened" : ""}`;
   
   return (
     <div className={imagePopupClass}>
