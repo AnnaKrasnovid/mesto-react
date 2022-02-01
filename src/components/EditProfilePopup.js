@@ -18,19 +18,15 @@ function EditProfilePopup(props) {
             name: name,
             about: description,            
         });
-        //console.log(description);
-        //console.log(name);
     }
 
     function handleChangeName(e){
         setName(e.target.value)
-        //console.log(name);
     }
 
     function handleChangeDescription(e){
         setDescription(e.target.value)
-        //console.log(description);
-    }
+    }   
 
     return (<PopupWithForm
         name='edit'

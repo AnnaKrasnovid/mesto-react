@@ -1,8 +1,4 @@
-
-import EditProfilePopup from './EditProfilePopup'
-
-function PopupWithForm (props) {
-  
+function PopupWithForm (props) {  
   const popupClass = `popup popup_type_${props.name} ${props.isOpen ? "popup_opened" : ""}`
 
   return (
