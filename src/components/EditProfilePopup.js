@@ -10,7 +10,7 @@ function EditProfilePopup(props) {
     React.useEffect(() => {
         setName(currentUser.name);
         setDescription(currentUser.about);
-    }, [currentUser]);
+    }, [currentUser, props.isOpen]);
 
     function handleSubmit(e) {
         e.preventDefault();       
@@ -34,7 +34,8 @@ function EditProfilePopup(props) {
         isOpen={props.isOpen}
         onClose={props.onClose}
         buttonText={'Сохранить'}
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+        isLoadingData={props.isLoadingData}>
         <input
             id="name-input"
             className="popup__input popup__input_info_name"
