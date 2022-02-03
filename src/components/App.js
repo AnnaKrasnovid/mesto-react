@@ -96,6 +96,7 @@ function App() {
         setCards((state) => state.filter((c) => c._id !== cardDelete._id))
         closeAllPopups()
       })
+      .catch(err => { console.log(err) })
   }
 
   function handleCardLike(card) {    
@@ -104,7 +105,8 @@ function App() {
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
+      })
+      .catch(err => { console.log(err) })
   }
 
   function handleAddPlaceSubmit(newCard) {
@@ -134,7 +136,7 @@ function App() {
             onCardDelete={handleDeleteCardClick}
             onCardClick={handleCardClick}
             onCardLike={handleCardLike}
-            cards={cards} />
+            /*cards={cards}*/ />
           <Footer />
 
           <EditProfilePopup

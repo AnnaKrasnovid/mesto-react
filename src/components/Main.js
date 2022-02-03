@@ -1,9 +1,11 @@
 import React from 'react';
 import Card from './Card';
 import CurrentUserContext from '../contexts/CurrentUserContext';
+import CardContext from '../contexts/CardContext';
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
+  const cards = React.useContext(CardContext)
   
   return (
     <main className="content">
@@ -21,7 +23,7 @@ function Main(props) {
           <button className = "profile__add-button hover-button" type = "button" onClick={props.onAddPlace}></button>
       </section><section aria-label = "Публикация">
         <ul className = "elements">                  
-        {props.cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick } onCardDelete={props.onCardDelete} /*onCardDelete={props.onCardDelete}*/ onCardLike={props.onCardLike} />)}
+        {cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick } onCardDelete={props.onCardDelete} onCardLike={props.onCardLike} />)}
         </ul>
       </section>
     </main>

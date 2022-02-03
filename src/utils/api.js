@@ -8,14 +8,14 @@ export class Api {
       return fetch(`${this._baseUrl}/cards`, {
         headers: this._headers
       })
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
     getProfileInfo() {
       return fetch(`${this._baseUrl}/users/me`, {      
         headers: this._headers
       })
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
     setProfileInfo(data) {
@@ -27,7 +27,7 @@ export class Api {
           about: data.about          
         })        
       })      
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
     setNewCard(data) {
@@ -39,7 +39,7 @@ export class Api {
           link: data.link
         })
       })
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
     setUserAvatar(data) {
@@ -50,7 +50,7 @@ export class Api {
           avatar: data.avatar
         })
       })
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
     changeLikeCardStatus(id, isLiked) {
@@ -65,7 +65,7 @@ export class Api {
           method: 'DELETE',
           headers: this._headers,
         })
-        .then(this._responseStatus)
+        .then(this._checkResponseStatus)
       }      
     }
   
@@ -74,10 +74,10 @@ export class Api {
         method: 'DELETE',
         headers: this._headers
       })
-      .then(this._responseStatus)
+      .then(this._checkResponseStatus)
     }
   
-    _responseStatus(res) {
+    _checkResponseStatus(res) {
       if (res.ok) {
         return res.json();
       }      
