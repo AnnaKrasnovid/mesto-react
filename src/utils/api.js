@@ -59,7 +59,7 @@ export class Api {
           method: 'PUT',
           headers: this._headers,
         })
-        .then(this._responseStatus)
+        .then(this._checkResponseStatus)
       } else {
         return fetch (`${this._baseUrl}/cards/${id}/likes`, {
           method: 'DELETE',
