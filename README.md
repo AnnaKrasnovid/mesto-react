@@ -1,3 +1,7 @@
+---
+permalink: /index.html
+---
+
 # Проектная работа "Mesto" 
 Написана в рамках обучения на курсе веб-разработчик [Яндекс-практикума](https://practicum.yandex.ru/profile/web/), 10-11 спринты.
 #### [Посмотреть проект "Место" в браузере](https://annakrasnovid.github.io/mesto-react/) 
